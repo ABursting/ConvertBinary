@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class ConvertBinary {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Do you want to convert from or to binary? (answer f or t for the respective answer)");
+		String ans = keyboard.next();
+		
+		if(ans.equals("f")) {
+			System.out.println("Please enter the binary number you want to convert.");
+			String num = keyboard.next();
+			long total = 0;
+			for(int i = 0; i < num.length(); i++) {
+				int rem = (num.charAt(num.length()-1-i)-'0');
+				total += rem * Math.pow(2, i);
+			}
+			System.out.println("The binary number " + num + " is equal to " + total + " in the base 10 system.");
+		}
+		else if(ans.equals("t")) {
+			System.out.println("Please enter the  number you want to convert into binary.");
+			Long num = Long.parseLong(keyboard.next());
+			Long temp = num;
+			String otpt = "";
+			Long rem = (long) 0;
+			while (temp > 0) {
+				rem = temp % 2;
+				otpt = rem + otpt;
+				temp = temp / 2;
+			}
+			System.out.println("The number " + num + " is equal to " + otpt + " in binary.");
+		}
+	}
+
+}
